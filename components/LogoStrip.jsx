@@ -1,40 +1,72 @@
-// LogoStrip — Server Component (no interactivity)
+// LogoStrip — uses .trust-section, .trust-logos, .trust-logo CSS classes
 
-/** Individual wordmark logo rendered as styled text */
-function LogoWordmark({ prefix, name }) {
-  return (
-    <div className="flex items-center gap-1.5 text-gray-500 hover:text-gray-700 transition-colors">
-      {/* Small icon square */}
-      <div className="w-6 h-6 rounded bg-gray-200 flex items-center justify-center shrink-0">
-        <span className="text-xs font-bold text-gray-500">{prefix}</span>
-      </div>
-      <span className="text-sm font-semibold whitespace-nowrap">{name}</span>
-    </div>
-  );
-}
+const ApexIcon = () => (
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M4 20L12 4l8 16" />
+    <path d="M12 11l-3 6h6z" fill="currentColor" stroke="none" />
+  </svg>
+);
 
-/** The five company logos shown in the design */
+const SterlingIcon = () => (
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 3l-8 4v2l8-4 8 4v-2l-8-4z" fill="currentColor" stroke="none" />
+    <path d="M4 11v2l8 4 8-4v-2l-8 4-8-4z" fill="currentColor" stroke="none" />
+    <path d="M4 15v2l8 4 8-4v-2l-8 4-8-4z" fill="currentColor" stroke="none" />
+  </svg>
+);
+
+const BuildRightIcon = () => (
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+    <rect x="4" y="14" width="4.5" height="8" rx="1" />
+    <rect x="10" y="9" width="4.5" height="13" rx="1" />
+    <rect x="16" y="4" width="4.5" height="18" rx="1" />
+  </svg>
+);
+
+const GlobalIcon = () => (
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="10" />
+    <line x1="2" y1="12" x2="22" y2="12" />
+    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+    <path d="M2 16.5h20M2 7.5h20" />
+  </svg>
+);
+
+const PrimeIcon = () => (
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" strokeLinejoin="miter">
+    <path d="M4 4h9a4 4 0 0 1 0 8H4" />
+    <path d="M4 16h7" />
+    <path d="M4 20h4" />
+    <path d="M4 4v16" />
+  </svg>
+);
+
 const LOGOS = [
-  { prefix: "A",  name: "Apex Logistics" },
-  { prefix: "S",  name: "Sterling Manufacturing" },
-  { prefix: "BR", name: "BuildRight Construction" },
-  { prefix: "GW", name: "Global Warehousing Solutions" },
-  { prefix: "P",  name: "Prime Distribution" },
+  { icon: <ApexIcon />, name: "Apex", sub: "Logistics" },
+  { icon: <SterlingIcon />, name: "Sterling", sub: "Manufacturing" },
+  { icon: <BuildRightIcon />, name: "BuildRight", sub: "Construction" },
+  { icon: <GlobalIcon />, name: "Global", sub: "Warehousing Solutions" },
+  { icon: <PrimeIcon />, name: "Prime", sub: "Distribution" },
 ];
 
 export default function LogoStrip() {
   return (
-    <section className="bg-gray-50 border-y border-gray-100 py-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Heading */}
-        <p className="text-center text-sm font-semibold text-gray-500 mb-8 tracking-wide">
+    <section className="trust-section">
+      <div className="content-width">
+        <p className="trust-title">
           Trusted by teams that need consistent inspections
         </p>
-
-        {/* Logo row — horizontally scrollable on mobile */}
-        <div className="flex flex-wrap justify-center gap-8 md:gap-12 no-scrollbar">
-          {LOGOS.map((logo) => (
-            <LogoWordmark key={logo.name} prefix={logo.prefix} name={logo.name} />
+        <div className="trust-logos">
+          {LOGOS.map(({ icon, name, sub }) => (
+            <div key={name} className="trust-logo">
+              <div className="trust-logo-icon">
+                {icon}
+              </div>
+              <div style={{ lineHeight: 1.15 }}>
+                <div style={{ fontSize: "14px", fontWeight: 800 }}>{name}</div>
+                <div style={{ fontSize: "11px", fontWeight: 700, color: "#3B5262" }}>{sub}</div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
