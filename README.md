@@ -5,6 +5,38 @@ This repository contains my submission for the **Next.js Practical Task** assign
 ## 🚀 Live Demo
 *(You can add a link to your Vercel or Netlify deployment here if you deploy it)*
 
+## 🖥️ Complete Page Preview
+
+The following screenshots show the complete InspectPro landing page in sequence, from the hero section through the footer.
+
+<p align="center">
+   <img src="public/web-images/image1.png" alt="InspectPro landing page hero section" width="100%" />
+</p>
+<p align="center">
+   <img src="public/web-images/image2.png" alt="InspectPro introduction section" width="100%" />
+</p>
+<p align="center">
+   <img src="public/web-images/image3.png" alt="InspectPro checklist details section" width="100%" />
+</p>
+<p align="center">
+   <img src="public/web-images/image4.png" alt="InspectPro checklist continuation" width="100%" />
+</p>
+<p align="center">
+   <img src="public/web-images/image5.png" alt="InspectPro features section" width="100%" />
+</p>
+<p align="center">
+   <img src="public/web-images/image6.png" alt="InspectPro how it works section" width="100%" />
+</p>
+<p align="center">
+   <img src="public/web-images/image7.png" alt="InspectPro use cases section" width="100%" />
+</p>
+<p align="center">
+   <img src="public/web-images/image8.png" alt="InspectPro FAQ section" width="100%" />
+</p>
+<p align="center">
+   <img src="public/web-images/image9.png" alt="InspectPro call to action and footer" width="100%" />
+</p>
+
 ## 🛠️ Tech Stack
 - **Framework**: Next.js 14 (App Router)
 - **Library**: React
